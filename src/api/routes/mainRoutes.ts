@@ -1,25 +1,16 @@
-import Express from 'express'
+import Express, { type Request, type Response } from 'express'
+import UserController from '../controller/USerController'
 
 const router = Express.Router()
+const userController = new UserController()
 
-router.post('/user', (req, res) => {
-  res.status(200).send('set')
-})
+router.get('/user', (req: Request, res: Response) => { void userController.getAll(req, res) })
 
-router.get('/user/', (req, res) => {
-  res.status(200).send('tasks aquis')
-})
+router.post('/user', (req, res) => { void userController.getById(req, res) })
 
-router.get('/user/:id', (req, res) => {
-  res.status(200).send('tasks aquis')
-})
-
-router.patch('/user/:id', (req, res) => {
-  res.status(200).send('tasks aquis')
-})
-
-router.delete('/user/:id', (req, res) => {
-  res.status(200).send('tasks aquis')
-})
+//
+//
+//
+//
 
 export default router

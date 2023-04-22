@@ -1,8 +1,8 @@
-import type UserInterface from '../interfaces/userInterface'
+import type UserInterface from '../interface/userInterface'
 import DataTypes from 'sequelize'
 import dataSource from '../../db/dataSource'
 
-export const User = dataSource.define<UserInterface>('user', {
+export const UserEntity = dataSource.define<UserInterface>('user', {
   id: {
     primaryKey: true,
     type: DataTypes.INTEGER
@@ -17,4 +17,9 @@ export const User = dataSource.define<UserInterface>('user', {
     type: DataTypes.STRING
   }
 
+}, {
+  tableName: 'users',
+  timestamps: false
 })
+
+export default UserEntity

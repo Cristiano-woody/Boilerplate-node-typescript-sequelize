@@ -9,6 +9,10 @@ dotenv.config()
 // iniciando o app
 const app = express()
 
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+// usando rotas
 app.use(MainRoutes)
 
 export default app

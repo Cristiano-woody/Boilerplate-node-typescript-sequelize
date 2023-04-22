@@ -10,10 +10,7 @@ try {
   void dataSource.authenticate().then(() => {
     console.log('banco iniciado')
     app.listen(portServer, () => {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      console.log(`\n Aplicação iniciada na porta: ${portServer} \n`)
+      console.log(`\n Aplicação iniciada na porta: ${portServer as string} \n`)
     })
   })
-} catch (error) {
-  console.log(error)
-}
+} catch (error) { console.log(error) }
