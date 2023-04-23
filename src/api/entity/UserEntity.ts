@@ -5,7 +5,8 @@ import dataSource from '../../db/dataSource'
 export const UserEntity = dataSource.define<UserInterface>('user', {
   id: {
     primaryKey: true,
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    autoIncrement: true
   },
   name: {
     type: DataTypes.STRING
