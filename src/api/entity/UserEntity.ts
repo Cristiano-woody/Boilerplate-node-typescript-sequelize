@@ -1,6 +1,6 @@
-import type UserInterface from '../interface/userInterface'
 import DataTypes from 'sequelize'
 import dataSource from '../../db/dataSource'
+import type UserInterface from '../interface/userInterface'
 
 export const UserEntity = dataSource.define<UserInterface>('user', {
   id: {

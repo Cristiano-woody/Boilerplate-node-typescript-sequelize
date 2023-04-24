@@ -5,48 +5,64 @@ const userService = new UserService()
 
 class UserController {
   //
-  async create (req: Request, res: Response): Promise<any> {
+  async create (req: Request, res: Response): Promise<void> {
     try {
       const user = await userService.create(req)
       res.status(200).json(user)
     } catch (error) {
+      console.log(error)
       res.status(400).send('requisićão inválida')
     }
   }
 
-  async getAll (req: Request, res: Response): Promise<any> {
+  async getAll (req: Request, res: Response): Promise<void> {
     try {
       const allUsers = await userService.getAll()
       res.status(200).json(allUsers)
     } catch (error) {
+      console.log(error)
       res.status(400).send('requisicão inválida')
     }
   }
 
-  async getById (req: Request, res: Response): Promise<any> {
+  async getById (req: Request, res: Response): Promise<void> {
     try {
       const user = await userService.getById(req)
-      res.status(200).json(user)
+      if (user !== undefined && user !== null) {
+        res.status(200).json(user)
+      } else {
+        res.status(400).send('Usuário não encontrado')
+      }
     } catch (error) {
+      console.log(error)
       res.status(400).send('requisicão inválida')
     }
   }
 
-  async updateByID (req: Request, res: Response): Promise<any> {
+  async updateByID (req: Request, res: Response): Promise<void> {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
       const user = await userService.updateByID(req)
-      res.status(200).json(user)
+      if (user !== undefined && user !== null) {
+        res.status(200).json(user)
+      } else {
+        res.status(400).send('Usuário não encontrado')
+      }
     } catch (error) {
+      console.log(error)
       res.status(400).send('requisicão inválida')
     }
   }
 
-  async delete (req: Request, res: Response): Promise<any> {
+  async deleteByID (req: Request, res: Response): Promise<void> {
     try {
-      const user = await userService.delete(req)
-      res.status(200).json(user)
+      const user = await userService.deleteByID(req)
+      if (user !== undefined && user !== null) {
+        res.status(200).json(`Usuário: ${user.name} deletado.`)
+      } else {
+        res.status(400).send('Usuário não encontrado')
+      }
     } catch (error) {
+      console.log(error)
       res.status(400).json('requisicão inválida')
     }
   }
