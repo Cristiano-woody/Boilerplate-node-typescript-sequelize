@@ -1,8 +1,8 @@
 import DataTypes from 'sequelize'
-import dataSource from '../../db/dataSource'
+import PostgresDataSource from '../../db/PostgresDataSource'
 import type UserInterface from '../interface/userInterface'
 
-export const UserEntity = dataSource.define<UserInterface>('user', {
+export const userEntity = PostgresDataSource.define<UserInterface>('user', {
   id: {
     primaryKey: true,
     type: DataTypes.INTEGER,
@@ -23,4 +23,4 @@ export const UserEntity = dataSource.define<UserInterface>('user', {
   timestamps: false
 })
 
-export default UserEntity
+export default userEntity
