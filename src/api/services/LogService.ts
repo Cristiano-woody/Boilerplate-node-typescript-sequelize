@@ -9,7 +9,9 @@ class LogService {
     const datenow = getDateNow()
     await logEntity.create({
       message: `${messagelog}`,
-      date: `${datenow}`
+      date: `${datenow}`,
+      ip_client: `${req.ip}`,
+      hostname_client: `${req.hostname}`
     })
   }
 
