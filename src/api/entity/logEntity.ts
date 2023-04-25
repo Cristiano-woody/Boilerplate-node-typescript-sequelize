@@ -13,6 +13,12 @@ export const logEntity = PostgresDataSource.define<logInterface>('logs', {
   },
   message: {
     type: DataTypes.STRING
+  },
+  id_client: {
+    type: DataTypes.STRING
+  },
+  hostname_client: {
+    type: DataTypes.STRING
   }
 }, {
   tableName: 'logs',
