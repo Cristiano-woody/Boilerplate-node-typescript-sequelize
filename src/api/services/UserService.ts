@@ -1,11 +1,11 @@
-import UserEntity from '../entity/UserEntity'
+import userEntity from '../entity/UserEntity'
 import { type Request } from 'express'
 import type UserInterface from '../interface/userInterface'
 
 class UserService {
   //
   async create (req: Request): Promise<UserInterface> {
-    const user = await UserEntity.create({
+    const user = await userEntity.create({
       name: `${req.body.name as string}`,
       age: parseInt(req.body.age),
       gender: `${req.body.gender as string}`
@@ -14,19 +14,19 @@ class UserService {
   }
 
   async getAll (): Promise<UserInterface[]> {
-    const user = await UserEntity.findAll()
+    const user = await userEntity.findAll()
     return user
   }
 
   async getById (req: Request): Promise<UserInterface | undefined> {
-    const user = await UserEntity.findByPk(parseInt(req.query.id as string))
+    const user = await userEntity.findByPk(parseInt(req.query.id as string))
     if (user != null) {
       return user
     }
   }
 
   async updateByID (req: Request): Promise<UserInterface | undefined> {
-    const results = await UserEntity.findByPk(parseInt(req.body.id as string))
+    const results = await userEntity.findByPk(parseInt(req.body.id as string))
     if (results != null) {
       const user = results
       if (req.body.name !== undefined) {
@@ -47,9 +47,9 @@ class UserService {
   }
 
   async deleteByID (req: Request): Promise<UserInterface | undefined | null> {
-    const user = await UserEntity.findByPk(parseInt(req.query.id as string))
+    const user = await userEntity.findByPk(parseInt(req.query.id as string))
     if (user !== undefined && user !== null) {
-      await UserEntity.destroy({
+      await userEntity.destroy({
         where: {
           id: user.id
         }

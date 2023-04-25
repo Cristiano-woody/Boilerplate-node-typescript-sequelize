@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const dataSource = new Sequelize(
+const PostgresDataSource = new Sequelize(
   process.env.PG_DB as string,
   process.env.PG_USER as string,
   process.env.PG_PASSWORD as string,
@@ -13,4 +13,4 @@ const dataSource = new Sequelize(
   }
 )
 
-export default dataSource
+export default PostgresDataSource

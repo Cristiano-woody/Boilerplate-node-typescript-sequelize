@@ -1,4 +1,4 @@
-import dataSource from './db/dataSource'
+import dataSource from './db/PostgresDataSource'
 import app from './api/app'
 // importando o .env
 import * as dotenv from 'dotenv'
