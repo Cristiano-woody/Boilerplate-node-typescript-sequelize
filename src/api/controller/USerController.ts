@@ -1,13 +1,17 @@
 import { type Request, type Response } from 'express'
 import UserService from '../services/UserService'
+import LogService from '../services/LogService'
 
 const userService = new UserService()
+
+const logService = new LogService()
 
 class UserController {
   //
   async create (req: Request, res: Response): Promise<void> {
     try {
       const user = await userService.create(req)
+      void logService.crete(`create user: ${JSON.stringify(user)}`, req)
       res.status(200).json(user)
     } catch (error) {
       console.log(error)
@@ -18,6 +22,7 @@ class UserController {
   async getAll (req: Request, res: Response): Promise<void> {
     try {
       const allUsers = await userService.getAll()
+      void logService.crete('get all users ', req)
       res.status(200).json(allUsers)
     } catch (error) {
       console.log(error)
@@ -29,6 +34,7 @@ class UserController {
     try {
       const user = await userService.getById(req)
       if (user !== undefined && user !== null) {
+        void logService.crete(`get user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(user)
       } else {
         res.status(400).send('Usuário não encontrado')
@@ -43,6 +49,7 @@ class UserController {
     try {
       const user = await userService.updateByID(req)
       if (user !== undefined && user !== null) {
+        void logService.crete(`update user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(user)
       } else {
         res.status(400).send('Usuário não encontrado')
@@ -57,6 +64,7 @@ class UserController {
     try {
       const user = await userService.deleteByID(req)
       if (user !== undefined && user !== null) {
+        void logService.crete(`delete user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(`Usuário: ${user.name} deletado.`)
       } else {
         res.status(400).send('Usuário não encontrado')

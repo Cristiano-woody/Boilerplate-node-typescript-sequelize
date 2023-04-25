@@ -9,13 +9,13 @@ export const logEntity = PostgresDataSource.define<logInterface>('logs', {
     autoIncrement: true
   },
   date: {
-    type: DataTypes.DATE
+    type: DataTypes.STRING
   },
   message: {
     type: DataTypes.STRING
   }
 }, {
-  tableName: 'users',
+  tableName: 'logs',
   timestamps: false
 })
 

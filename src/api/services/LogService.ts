@@ -1,13 +1,15 @@
 import logEntity from '../entity/logEntity'
 import type logInterface from '../interface/logInterface'
 import type { Request } from 'express'
+import getDateNow from '../../helpers/getDateNow'
 
 class LogService {
   //
-  async crete (messagelog: string, datelog: string): Promise<void> {
+  async crete (messagelog: string, req: Request): Promise<void> {
+    const datenow = getDateNow()
     await logEntity.create({
       message: `${messagelog}`,
-      date: `${datelog}`
+      date: `${datenow}`
     })
   }
 
