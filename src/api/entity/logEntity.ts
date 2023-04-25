@@ -11,7 +11,7 @@ export const logEntity = PostgresDataSource.define<logInterface>('logs', {
   date: {
     type: DataTypes.DATE
   },
-  mensage: {
+  message: {
     type: DataTypes.STRING
   }
 }, {
