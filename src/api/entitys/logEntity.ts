@@ -1,6 +1,6 @@
 import DataTypes from 'sequelize'
 import PostgresDataSource from '../../db/PostgresDataSource'
-import type logInterface from '../interface/logInterface'
+import type logInterface from '../interfaces/logInterface'
 
 export const logEntity = PostgresDataSource.define<logInterface>('logs', {
   id: {

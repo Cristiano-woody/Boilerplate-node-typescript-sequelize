@@ -1,6 +1,6 @@
 import DataTypes from 'sequelize'
 import PostgresDataSource from '../../db/PostgresDataSource'
-import type UserInterface from '../interface/userInterface'
+import type UserInterface from '../interfaces/userInterface'
 
 export const userEntity = PostgresDataSource.define<UserInterface>('user', {
   id: {

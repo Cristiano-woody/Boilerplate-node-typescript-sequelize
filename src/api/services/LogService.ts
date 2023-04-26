@@ -1,5 +1,5 @@
-import logEntity from '../entity/logEntity'
-import type logInterface from '../interface/logInterface'
+import logEntity from '../entitys/logEntity'
+import type logInterface from '../interfaces/logInterface'
 import type { Request } from 'express'
 import getDateNow from '../../helpers/getDateNow'
 

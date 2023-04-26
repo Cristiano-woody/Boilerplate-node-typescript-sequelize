@@ -1,5 +1,5 @@
 import Express, { type Request, type Response } from 'express'
-import UserController from '../controller/USerController'
+import UserController from '../controllers/USerController'
 
 const router = Express.Router()
 const userController = new UserController()

@@ -1,6 +1,6 @@
-import userEntity from '../entity/userEntity'
+import userEntity from '../entitys/userEntity'
 import { type Request } from 'express'
-import type UserInterface from '../interface/userInterface'
+import type UserInterface from '../interfaces/userInterface'
 
 class UserService {
   //
