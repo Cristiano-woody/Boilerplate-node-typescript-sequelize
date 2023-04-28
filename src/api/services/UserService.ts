@@ -26,8 +26,8 @@ class UserService {
   }
 
   async updateByID (req: Request): Promise<UserInterface | undefined> {
-    const results = await userEntity.findByPk(parseInt(req.body.id as string))
-    if (results != null) {
+    const results = await userEntity.findByPk(parseInt(req.query.id as string))
+    if (results !== null && results !== undefined) {
       const user = results
       if (req.body.name !== undefined) {
         user.name = req.body.name
