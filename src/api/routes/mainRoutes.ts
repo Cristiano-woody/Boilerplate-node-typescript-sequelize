@@ -10,9 +10,9 @@ router.get('/user', (req: Request, res: Response) => { void userController.getAl
 
 router.get('/user/:id', (req: Request, res: Response) => { void userController.getById(req, res) })
 
-router.delete('/user/:id', (req: Request, res: Response) => { void userController.deleteByID(req, res) })
+router.patch('/user:id', (req: Request, res: Response) => { void userController.updateByID(req, res) })
 
-router.patch('/user', (req: Request, res: Response) => { void userController.updateByID(req, res) })
+router.delete('/user/:id', (req: Request, res: Response) => { void userController.deleteByID(req, res) })
 
 //
 //
