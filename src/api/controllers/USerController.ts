@@ -66,15 +66,15 @@ class UserController {
     }
   }
 
-  async deleteByID (req: Request, res: Response): Promise<void> {
+  async deleteUserByID (req: Request, res: Response): Promise<void> {
     try {
-      const user = await userService.deleteByID(req)
+      const user = await userService.deleteUserByID(req)
       if (user !== undefined && user !== null) {
         void logService.crete(`delete user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(`Usuário: ${user.name} deletado.`)
       } else {
         void logService.crete('deleteByID: usuário não encontrado', req)
-        res.status(400).send('Usuário não encontrado')
+        res.status(404).send('Usuário não encontrado')
       }
     } catch (error) {
       console.log(error)

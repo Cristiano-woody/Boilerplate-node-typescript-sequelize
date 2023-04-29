@@ -44,7 +44,7 @@ class UserService {
     }
   }
 
-  async deleteByID (req: Request): Promise<UserInterface | undefined | null> {
+  async deleteUserByID (req: Request): Promise<UserInterface | undefined | null> {
     const user = await userEntity.findByPk(parseInt(req.query.id as string))
     if (user !== undefined && user !== null) {
       await userEntity.destroy({
