@@ -8,7 +8,7 @@ router.post('/user', (req: Request, res: Response) => { void userController.crea
 
 router.get('/user', (req: Request, res: Response) => { void userController.getAllUsers(req, res) })
 
-router.get('/user/:id', (req: Request, res: Response) => { void userController.getById(req, res) })
+router.get('/user/:id', (req: Request, res: Response) => { void userController.getUserById(req, res) })
 
 router.patch('/user/:id', (req: Request, res: Response) => { void userController.updateByID(req, res) })
 

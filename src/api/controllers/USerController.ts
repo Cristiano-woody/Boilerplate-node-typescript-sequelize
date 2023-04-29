@@ -32,15 +32,15 @@ class UserController {
     }
   }
 
-  async getById (req: Request, res: Response): Promise<void> {
+  async getUserById (req: Request, res: Response): Promise<void> {
     try {
-      const user = await userService.getById(req)
+      const user = await userService.getUserById(req)
       if (user !== undefined && user !== null) {
         void logService.crete(`get user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(user)
       } else {
         void logService.crete('getByID: usuario não encontrado', req)
-        res.status(400).send('Usuário não encontrado')
+        res.status(404).send('Usuário não encontrado')
       }
     } catch (error) {
       console.log(error)
