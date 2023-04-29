@@ -49,15 +49,15 @@ class UserController {
     }
   }
 
-  async updateByID (req: Request, res: Response): Promise<void> {
+  async updateUserByID (req: Request, res: Response): Promise<void> {
     try {
-      const user = await userService.updateByID(req)
+      const user = await userService.updateUserByID(req)
       if (user !== undefined && user !== null) {
         void logService.crete(`update user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(user)
       } else {
         void logService.crete('updateByID: usuario não encontrado', req)
-        res.status(400).send('Usuário não encontrado')
+        res.status(404).send('Usuário não encontrado')
       }
     } catch (error) {
       console.log(error)
