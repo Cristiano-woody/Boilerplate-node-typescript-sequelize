@@ -6,7 +6,7 @@ const userController = new UserController()
 
 router.post('/user', (req: Request, res: Response) => { void userController.createUser(req, res) })
 
-router.get('/user', (req: Request, res: Response) => { void userController.getAll(req, res) })
+router.get('/user', (req: Request, res: Response) => { void userController.getAllUsers(req, res) })
 
 router.get('/user/:id', (req: Request, res: Response) => { void userController.getById(req, res) })
 

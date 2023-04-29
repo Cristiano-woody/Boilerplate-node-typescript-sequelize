@@ -13,9 +13,9 @@ class UserService {
     return user
   }
 
-  async getAll (): Promise<UserInterface[]> {
-    const user = await userEntity.findAll()
-    return user
+  async getAllUsers (): Promise<UserInterface[]> {
+    const allUsers = await userEntity.findAll()
+    return allUsers
   }
 
   async getById (req: Request): Promise<UserInterface | undefined> {

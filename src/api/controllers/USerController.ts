@@ -20,9 +20,9 @@ class UserController {
     }
   }
 
-  async getAll (req: Request, res: Response): Promise<void> {
+  async getAllUsers (req: Request, res: Response): Promise<void> {
     try {
-      const allUsers = await userService.getAll()
+      const allUsers = await userService.getAllUsers()
       void logService.crete('get all users ', req)
       res.status(200).json(allUsers)
     } catch (error) {
