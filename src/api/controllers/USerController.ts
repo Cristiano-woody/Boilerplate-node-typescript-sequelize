@@ -8,11 +8,11 @@ const logService = new LogService()
 
 class UserController {
   //
-  async create (req: Request, res: Response): Promise<void> {
+  async createUser (req: Request, res: Response): Promise<void> {
     try {
-      const user = await userService.create(req)
+      const user = await userService.createUser(req.body)
       void logService.crete(`create user: ${JSON.stringify(user)}`, req)
-      res.status(200).json(user)
+      res.status(201).json(user)
     } catch (error) {
       console.log(error)
       void logService.crete('createUser: erro na requisição', req)

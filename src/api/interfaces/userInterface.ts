@@ -1,7 +1,7 @@
 import { type Model } from 'sequelize'
 
 interface UserInterface extends Model {
-  id: number
+  id?: number
   name: string
   age: number
   gender: string

@@ -4,11 +4,11 @@ import type UserInterface from '../interfaces/userInterface'
 
 class UserService {
   //
-  async create (req: Request): Promise<UserInterface> {
+  async createUser (body: UserInterface): Promise<UserInterface> {
     const user = await userEntity.create({
-      name: `${req.body.name as string}`,
-      age: parseInt(req.body.age),
-      gender: `${req.body.gender as string}`
+      name: `${body.name}`,
+      age: body.age,
+      gender: `${body.gender}`
     })
     return user
   }
