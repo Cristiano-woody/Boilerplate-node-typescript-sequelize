@@ -11,11 +11,11 @@ class UserController {
   async createUser (req: Request, res: Response): Promise<void> {
     try {
       const user = await userService.createUser(req.body)
-      void logService.crete(`create user: ${JSON.stringify(user)}`, req)
+      void logService.creteLog(`create user: ${JSON.stringify(user)}`, req)
       res.status(201).json(user)
     } catch (error) {
       console.log(error)
-      void logService.crete('createUser: erro na requisição', req)
+      void logService.creteLog('createUser: erro na requisição', req)
       res.status(400).send('requisićão inválida')
     }
   }
@@ -23,11 +23,11 @@ class UserController {
   async getAllUsers (req: Request, res: Response): Promise<void> {
     try {
       const allUsers = await userService.getAllUsers()
-      void logService.crete('get all users ', req)
+      void logService.creteLog('get all users ', req)
       res.status(200).json(allUsers)
     } catch (error) {
       console.log(error)
-      void logService.crete('getAll: erro na requisição', req)
+      void logService.creteLog('getAll: erro na requisição', req)
       res.status(400).send('requisicão inválida')
     }
   }
@@ -36,15 +36,15 @@ class UserController {
     try {
       const user = await userService.getUserById(req)
       if (user !== undefined && user !== null) {
-        void logService.crete(`get user by id: ${JSON.stringify(user)}`, req)
+        void logService.creteLog(`get user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(user)
       } else {
-        void logService.crete('getByID: usuario não encontrado', req)
+        void logService.creteLog('getByID: usuario não encontrado', req)
         res.status(404).send('Usuário não encontrado')
       }
     } catch (error) {
       console.log(error)
-      void logService.crete('getByID: erro na requisição', req)
+      void logService.creteLog('getByID: erro na requisição', req)
       res.status(400).send('requisicão inválida')
     }
   }
@@ -53,15 +53,15 @@ class UserController {
     try {
       const user = await userService.updateUserByID(req)
       if (user !== undefined && user !== null) {
-        void logService.crete(`update user by id: ${JSON.stringify(user)}`, req)
+        void logService.creteLog(`update user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(user)
       } else {
-        void logService.crete('updateByID: usuario não encontrado', req)
+        void logService.creteLog('updateByID: usuario não encontrado', req)
         res.status(404).send('Usuário não encontrado')
       }
     } catch (error) {
       console.log(error)
-      void logService.crete('updateByID: erro na requisição', req)
+      void logService.creteLog('updateByID: erro na requisição', req)
       res.status(400).send('requisicão inválida')
     }
   }
@@ -70,15 +70,15 @@ class UserController {
     try {
       const user = await userService.deleteUserByID(req)
       if (user !== undefined && user !== null) {
-        void logService.crete(`delete user by id: ${JSON.stringify(user)}`, req)
+        void logService.creteLog(`delete user by id: ${JSON.stringify(user)}`, req)
         res.status(200).json(`Usuário: ${user.name} deletado.`)
       } else {
-        void logService.crete('deleteByID: usuário não encontrado', req)
+        void logService.creteLog('deleteByID: usuário não encontrado', req)
         res.status(404).send('Usuário não encontrado')
       }
     } catch (error) {
       console.log(error)
-      void logService.crete('deleteByID: erro na requisição delete', req)
+      void logService.creteLog('deleteByID: erro na requisição delete', req)
       res.status(400).json('requisicão inválida')
     }
   }
