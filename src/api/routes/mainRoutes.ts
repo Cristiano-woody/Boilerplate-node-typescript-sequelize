@@ -12,7 +12,7 @@ router.get('/user/:id', (req: Request, res: Response) => { void userController.g
 
 router.patch('/user/:id', (req: Request, res: Response) => { void userController.updateUserByID(req, res) })
 
-router.delete('/user/:id', (req: Request, res: Response) => { void userController.deleteByID(req, res) })
+router.delete('/user/:id', (req: Request, res: Response) => { void userController.deleteUserByID(req, res) })
 
 //
 //
