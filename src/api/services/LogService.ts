@@ -5,7 +5,7 @@ import getDateNow from '../../helpers/getDateNow'
 
 class LogService {
   //
-  async crete (messagelog: string, req: Request): Promise<void> {
+  async creteLog (messagelog: string, req: Request): Promise<void> {
     const datenow = getDateNow()
     await logEntity.create({
       message: `${messagelog}`,
@@ -17,9 +17,7 @@ class LogService {
 
   async getAll (req: Request): Promise<logInterface[] | undefined> {
     const allLogs = await logEntity.findAll()
-    if (allLogs !== null && allLogs !== undefined) {
-      return allLogs
-    }
+    return allLogs
   }
 
   async getByID (req: Request): Promise<logInterface | undefined> {
